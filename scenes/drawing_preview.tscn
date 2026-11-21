@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bfthtx0ghejto"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(8, 0.2, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(8, 0.2, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_block"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_block"]
+size = Vector3(2, 1, 2)
+
+[node name="DrawingPreview" type="Node3D" unique_id=709119705]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=803117828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor" unique_id=138803541]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor" unique_id=1354674226]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="RaisedSurface" type="StaticBody3D" parent="." unique_id=102283406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="RaisedSurface" unique_id=180919715]
+mesh = SubResource("BoxMesh_block")
+
+[node name="Collision" type="CollisionShape3D" parent="RaisedSurface" unique_id=1170379673]
+shape = SubResource("BoxShape3D_block")
